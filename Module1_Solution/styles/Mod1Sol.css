@@ -1,0 +1,32 @@
+.message-enterData {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.textBox-enterData {
+  border-color: red;
+}
+
+.message-Enjoy {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: green;
+}
+
+.textBox-Enjoy {
+  border-color: green;
+}
+
+.message-TooMuch {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: green;
+}
+
+.textBox-TooMuch {
+  border-color: green;
+}
