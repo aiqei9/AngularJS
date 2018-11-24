@@ -5,36 +5,45 @@
   .controller('NarrowItDownController', NarrowItDownController)
   .service('MenuSearchService', MenuSearchService)
   .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com")
-  .directive('foundItems', foundItems);
+  .directive('foundItems', FoundItemsDirective);
 
-  function foundItems() {
+  function FoundItemsDirective() {
     var ddo = {
-      templateUrl: 'foundItems.html'
-      // scope: {
-      //   found_Items: '<',
-      //   onRemove: '&'
-      // }
+      templateUrl: 'foundItems.html',
+      scope: {
+        found: '<',
+        onRemove: '&'
+      },
+      controller: FoundItemsDirectiveController,
+      controllerAs: 'ctrl2',
+      bindToController: true
     };
     return ddo;
   }
 
+  function FoundItemsDirectiveController() {
+    var ctrl2 = this;
+  }
+
+
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService) {
-    var NarrowCtrl = this;
+    var ctrl1 = this;
 
-    NarrowCtrl.searchTerm = "";
-    NarrowCtrl.found_items = [];
-    NarrowCtrl.mssg = "";
+    ctrl1.searchTerm = "";
+    ctrl1.found = [];
+    ctrl1.mssg = "";
 
-    NarrowCtrl.getMatchedMenuItems = function () {
-      if (NarrowCtrl.searchTerm == "") {
-        NarrowCtrl.mssg = "Please enter a search term";
+    ctrl1.getMatchedMenuItems = function () {
+      if (ctrl1.searchTerm == "") {
+        ctrl1.mssg = "Please enter a search term";
       } else {
-        var promise = MenuSearchService.getMatchedMenuItems(NarrowCtrl.searchTerm);
+        var promise = MenuSearchService.getMatchedMenuItems(ctrl1.searchTerm);
         promise.then(function (response) {
-          NarrowCtrl.found_items = response;
-          if (NarrowCtrl.found_items.length == 0) {
-            NarrowCtrl.mssg = "Nothing found";
+          ctrl1.found = response;
+          // console.log(ctrl1.found);
+          if (ctrl1.found.length == 0) {
+            ctrl1.mssg = "Nothing found";
           }
         }).catch(function (error) {
           console.log("Something went wrong: " + error);
@@ -42,9 +51,9 @@
       }
     };
 
-    NarrowCtrl.removeItem = function (itemIdx) {
-      var itemToRemove = NarrowCtrl.found_items[itemIdx];
-      NarrowCtrl.found_items.splice(itemToRemove, 1);
+    ctrl1.removeItem = function (itemIdx) {
+      var itemToRemove = ctrl1.found[itemIdx];
+      ctrl1.found.splice(itemToRemove, 1);
     };
 
 
