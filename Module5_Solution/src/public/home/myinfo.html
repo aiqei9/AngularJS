@@ -1,0 +1,25 @@
+<h2>Registered User Profile Info</h2>
+<div ng-if="MyInfoCtrl.user.FavItemID === undefined">
+  Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
+</div>
+<div ng-if="MyInfoCtrl.user.FavItemID !== undefined">
+  <div>
+    First name: {{ MyInfoCtrl.user.FirstName }}
+  </div>
+  <div>
+    Last name: {{ MyInfoCtrl.user.LastName }}
+  </div>
+  <div>
+    email: {{ MyInfoCtrl.user.email }}
+  </div>
+  <div>
+    Phone number: {{ MyInfoCtrl.user.PhoneNumber }}
+  </div>
+  <div>
+    Favorite menu item:
+    {{ MyInfoCtrl.user.FavItemID }}<br>
+    {{ MyInfoCtrl.user.FavItemName }}<br>
+    {{ MyInfoCtrl.user.FavItemDescription }}<br>
+    {{ MyInfoCtrl.itemImg }}
+  </div>
+</div>

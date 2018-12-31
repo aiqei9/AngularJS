@@ -1,0 +1,37 @@
+<fieldset>
+<h2>Newsletter Registration Form</h2>
+<form name='SignUpForm' novalidate>
+  <label>First name: </label>
+  <input style="color: black" type="text" name="FirstName" placeholder="Enter first name" ng-model="SignUpCtrl.user.FirstName" required>
+    <span ng-if="SignUpForm.FirstName.$error.required && SignUpForm.FirstName.$touched">First name is required</span>
+    {{ SignUpCtrl.user.FirstName }}<br>
+
+  <label>Last name: </label>
+  <input style="color: black" type="text" name="LastName" placeholder="Enter last name" ng-model="SignUpCtrl.user.LastName" required>
+    <span ng-if="SignUpForm.LastName.$error.required && SignUpForm.LastName.$touched">Last name is required</span>
+    {{ SignUpCtrl.user.LastName }}<br>
+
+  <label>email: </label>
+  <input style="color: black" type="text" name="email" placeholder="Enter email address" ng-model="SignUpCtrl.user.email" required>
+    <span ng-if="SignUpForm.email.$invalid && SignUpForm.email.$touched"> Must be an email address format: xxx@zzz</span>
+    {{ SignUpCtrl.user.email }}<br>
+
+  <label>Phone Number: </label>
+  <input style="color: black" type="text" name="PhoneNumber" placeholder="Enter phone number" ng-model="SignUpCtrl.user.PhoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})">
+    <span ng-if="SignUpForm.PhoneNumber.$invalid && SignUpForm.PhoneNumber.$touched"> Must be a phone no. format: ###-###-####</span>
+    {{ SignUpCtrl.user.PhoneNumber }}<br>
+
+  <label>Favorite menu item: </label>
+  <input style="color: black" type="text" name="FavItemID" placeholder="Enter menu item ID" ng-model="SignUpCtrl.user.FavItemID" required>
+  <span ng-if="SignUpCtrl.itemOK == false">{{ SignUpCtrl.message }}</span>
+  <div>Valid form? {{ SignUpForm.$valid }}</div>
+  <button ng-disabled="SignUpForm.$invalid" ng-click="SignUpCtrl.submitRequest()">Submit</button>
+  <div ng-if="SignUpCtrl.itemOK">
+    {{ SignUpCtrl.message }}
+  </div>
+  <div>
+    Current user: {{ SignUpCtrl.registeredUser.FirstName }} {{ SignUpCtrl.registeredUser.LastName }} {{ SignUpCtrl.registeredUser.FavItemID }}
+  </div>
+
+</form>
+</fieldset>
