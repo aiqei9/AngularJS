@@ -17,9 +17,11 @@
   </div>
   <div>
     Favorite menu item:
-    {{ MyInfoCtrl.user.FavItemID }}<br>
-    {{ MyInfoCtrl.user.FavItemName }}<br>
-    {{ MyInfoCtrl.user.FavItemDescription }}<br>
-    {{ MyInfoCtrl.itemImg }}
+    <span>({{ MyInfoCtrl.user.FavItemID }})</span>
+    <span>{{ MyInfoCtrl.user.FavItemName }}</span>
+    <br>
+    {{ MyInfoCtrl.user.FavItemDescription }}
+    <br>
+    <img class="img-responsive" width="250" height="150" ng-src="{{MyInfoCtrl.imgPath}}/images/{{MyInfoCtrl.user.FavItemID}}.json" alt="{{ MyInfoCtrl.user.FavItemName }}">
   </div>
 </div>

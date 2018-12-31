@@ -68,7 +68,7 @@ function SignUpController(UserService) {
 
     })
     .catch(function (error) {
-      console.log("Error while retrieving the data: ", error);
+      console.log("Error while retrieving the menu items data: ", error);
     });
 
   };

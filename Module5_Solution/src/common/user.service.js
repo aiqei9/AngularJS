@@ -28,8 +28,16 @@ function UserService ($http, ApiPath) {
     return service.user;
   }
 
-  service.getItemImg = function () {
-    return "Image goes here";
+  service.getItemImg = function (itemID) {
+    console.log("img requested for item: ", itemID);
+    return $http({
+      method: "GET",
+      url: (ApiPath + "/images/" + itemID + ".json")
+    })
+    .then(function (response) {
+      console.log("response.data: ", response);
+      return response.data;
+    });
   }
 
 }

@@ -54,9 +54,6 @@ function routeConfig ($stateProvider) {
                                   resolve: {
                                     currentUser: ['UserService', function (UserService) {
                                                     return UserService.getUserInfo();
-                                                }],
-                                    itemImg: ['UserService', function (UserService) {
-                                                    return UserService.getItemImg();
                                                 }]
                                   }
                                 });
