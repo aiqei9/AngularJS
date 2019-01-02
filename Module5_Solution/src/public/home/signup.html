@@ -2,23 +2,28 @@
 <form name='SignUpForm' novalidate>
   <label>First name: </label>
   <input style="color: black" type="text" name="FirstName" placeholder="Enter first name" ng-model="SignUpCtrl.user.FirstName" required>
+    <span ng-if="SignUpForm.FirstName.$valid"><span class="glyphicon glyphicon-ok"></span></span>
     <span ng-if="SignUpForm.FirstName.$error.required && SignUpForm.FirstName.$touched">First name is required</span><br>
 
   <label>Last name: </label>
   <input style="color: black" type="text" name="LastName" placeholder="Enter last name" ng-model="SignUpCtrl.user.LastName" required>
+    <span ng-if="SignUpForm.LastName.$valid"><span class="glyphicon glyphicon-ok"></span></span>
     <span ng-if="SignUpForm.LastName.$error.required && SignUpForm.LastName.$touched">Last name is required</span><br>
 
   <label>email: </label>
-  <input style="color: black" type="text" name="email" placeholder="Enter email address" ng-model="SignUpCtrl.user.email" required>
-    <span ng-if="SignUpForm.email.$invalid && SignUpForm.email.$touched"> Must be an email address format: xxx@zzz</span><br>
+  <input style="color: black" type="text" name="email" placeholder="Enter email address" ng-model="SignUpCtrl.user.email" pattern=".{1,}@.{1,}" required>
+    <span ng-if="SignUpForm.email.$valid"><span class="glyphicon glyphicon-ok"></span></span>
+    <span ng-if="SignUpForm.email.$invalid && SignUpForm.email.$touched"> Must be an email address format: x@z</span><br>
 
   <label>Phone Number: </label>
-  <input style="color: black" type="text" name="PhoneNumber" placeholder="Enter phone number" ng-model="SignUpCtrl.user.PhoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})">
+  <input style="color: black" type="text" name="PhoneNumber" placeholder="(Optional)" ng-model="SignUpCtrl.user.PhoneNumber" pattern="(\d{3})-(\d{3})-(\d{4})">
+    <span ng-if="SignUpForm.PhoneNumber.$valid"><span class="glyphicon glyphicon-ok"></span></span>
     <span ng-if="SignUpForm.PhoneNumber.$invalid && SignUpForm.PhoneNumber.$touched"> Must be a phone no. format: ###-###-####</span><br>
 
   <label>Favorite menu item: </label>
   <input style="color: black" type="text" name="FavItemID" placeholder="Enter menu item ID" ng-model="SignUpCtrl.user.FavItemID" required>
-  <span ng-if="SignUpCtrl.itemOK == false">{{ SignUpCtrl.message }}</span><br>
+    <span ng-if="SignUpForm.FavItemID.$valid"><span class="glyphicon glyphicon-ok"></span></span>
+    <span ng-if="SignUpCtrl.itemOK == false">{{ SignUpCtrl.message }}</span><br>
 
   <div ng-if="SignUpForm.$invalid">(Please complete form data to be able to submit)</div>
 
