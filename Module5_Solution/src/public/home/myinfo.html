@@ -3,19 +3,19 @@
   Not Signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a>
 </div>
 <div ng-if="MyInfoCtrl.user.FavItemID !== undefined">
-  <div>
+  <div class="UserProfile">
     First name: {{ MyInfoCtrl.user.FirstName }}
   </div>
-  <div>
+  <div class="UserProfile">
     Last name: {{ MyInfoCtrl.user.LastName }}
   </div>
-  <div>
+  <div class="UserProfile">
     email: {{ MyInfoCtrl.user.email }}
   </div>
-  <div>
+  <div class="UserProfile">
     Phone number: {{ MyInfoCtrl.user.PhoneNumber }}
   </div>
-  <div>
+  <div class="UserProfile">
     Favorite menu item:
     <span>({{ MyInfoCtrl.user.FavItemID }})</span>
     <span>{{ MyInfoCtrl.user.FavItemName }}</span>
