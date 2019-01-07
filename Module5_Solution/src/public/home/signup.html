@@ -23,7 +23,8 @@
       <span ng-if="SignUpForm.PhoneNumber.$invalid && SignUpForm.PhoneNumber.$touched"> Must be a phone no. format: ###-###-####</span><br>
 
     <label>Favorite menu item: </label>
-    <input style="color: black" type="text" name="FavItemID" placeholder="Enter menu item ID" ng-model="SignUpCtrl.user.FavItemID" pattern=".{2,}" item-validate required>
+    <input style="color: black" type="text" name="FavItemID" placeholder="Enter menu item ID"
+    ng-model="SignUpCtrl.user.FavItemID" pattern=".{2,}" item-validate required>
       <span ng-if="SignUpForm.FavItemID.$pending.FavItemID">Checking item ID ...</span>
       <span ng-if="SignUpForm.FavItemID.$error.FavItemID">Invalid item ID !!</span>
       <span ng-if="SignUpForm.FavItemID.$valid"><span class="glyphicon glyphicon-ok"></span></span>

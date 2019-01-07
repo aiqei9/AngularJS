@@ -22,8 +22,8 @@ function itemValidate(UserService) {
 
                 var promise = UserService.getMenuItem(userinput);
                 promise.then(function (response) {
-                  // console.log(response.data);
-                  // return response.data;
+                  console.log(response.data);
+                  return true;
                 })
                 .catch(function (error) {
                   console.log("Error while retrieving the menu items data: ", error);
