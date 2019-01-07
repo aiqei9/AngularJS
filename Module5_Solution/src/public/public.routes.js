@@ -56,6 +56,11 @@ function routeConfig ($stateProvider) {
                                                     return UserService.getUserInfo();
                                                 }]
                                   }
+                                })
+                .state('public.current', {
+                                  // url: '/current',
+                                  templateUrl: 'src/public/home/current.html',
+                                  controller: 'SignUpController as SignUpCtrl',
                                 });
                 }
 })();

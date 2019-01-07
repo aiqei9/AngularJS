@@ -9,12 +9,20 @@ function UserService ($http, ApiPath) {
   var service = this;
   service.user = {};
 
-  service.getMenuItems = function () {
-    var response = $http({
+  // service.getMenuItems = function () {
+  //   var response = $http({
+  //     method: "GET",
+  //     url: (ApiPath + "/menu_items.json")
+  //   });
+  //   return response;
+  // };
+
+  service.getMenuItem = function (itemID) {
+    var promise = $http({
       method: "GET",
-      url: (ApiPath + "/menu_items.json")
+      url: (ApiPath + "/menu_items/" + itemID + ".json")
     });
-    return response;
+    return promise;
   };
 
   service.saveUser = function (user) {
